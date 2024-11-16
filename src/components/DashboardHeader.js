@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bell, Search } from 'lucide-react';
+import { Bell, Search, Settings } from 'lucide-react';
 
 const DashboardHeader = () => {
   return (
@@ -12,6 +12,9 @@ const DashboardHeader = () => {
           <button className="btn btn-link text-dark p-1 position-relative">
             <Bell className="w-5 h-5" />
             <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span>
+          </button>
+          <button className="btn btn-link text-dark p-1 position-relative">
+            <Settings className="w-5 h-5" />
           </button>
           <img
             src="/path-to-profile-image.png"

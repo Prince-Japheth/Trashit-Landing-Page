@@ -1,7 +1,7 @@
 import React from 'react';
 import Sidenav from '../components/Sidenav';
 import DashboardHeader from '../components/DashboardHeader';
-import { Home, Settings, Wallet, MapPin, Star, RefreshCw, CreditCard } from 'lucide-react';
+import { Home, Wallet, MapPin, Star, RefreshCw, CreditCard } from 'lucide-react';
 
 const Dashboard = () => {
     const recentPickups = [
@@ -32,31 +32,25 @@ const Dashboard = () => {
                 <DashboardHeader />
                 <div className="flex-grow-1 p-4">
 
-                                    {/* Action Cards */}
-                <div className="row g-3">
-                    <div className="col-6">
-                        <div className="border rounded-3 p-3 text-center">
-                            <CreditCard className="text-primary mb-2" />
-                            <div className="small">Subscription Plan</div>
+                    {/* Action Cards */}
+                    <div className="row g-3">
+                        <div className="col-6">
+                            <div className="border rounded-3 p-3 text-center">
+                                <CreditCard className="text-primary mb-2" />
+                                <div className="small">Subscription Plan</div>
+                            </div>
+                        </div>
+                        <div className="col-6">
+                            <div className="border rounded-3 p-3 text-center">
+                                <RefreshCw className="text-success mb-2" />
+                                <div className="small">Recycle Tokens</div>
+                            </div>
                         </div>
                     </div>
-                    <div className="col-6">
-                        <div className="border rounded-3 p-3 text-center">
-                            <RefreshCw className="text-success mb-2" />
-                            <div className="small">Recycle Tokens</div>
-                        </div>
-                    </div>
-                </div>
                     {/* Welcome Section */}
                     <div className="bg-white rounded-3 p-4 mb-4 shadow-sm">
                         <div className="d-flex justify-content-between align-items-center mb-4">
                             <h2 className="h4 mb-0">Hello John Doe</h2>
-                            <div className="position-relative">
-                                <Settings className="text-muted" />
-                                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
-                                    2
-                                </span>
-                            </div>
                         </div>
 
                         {/* Token Balance */}
@@ -94,7 +88,7 @@ const Dashboard = () => {
                                     <div className="d-flex justify-content-between align-items-center">
                                         <div className="d-flex align-items-center gap-2">
                                             <div className="bg-secondary bg-opacity-10 rounded-circle p-2">
-                                                <Settings className="opacity-50" size={20} />
+                                                
                                             </div>
                                             <div>
                                                 <div className="small">{pickup.driverName}</div>
