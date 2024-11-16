@@ -9,9 +9,6 @@ const DashboardHeader = () => {
           <button className="btn btn-link text-dark p-1">
             <Search className="w-5 h-5" />
           </button>
-          <button className="btn btn-link text-dark p-1">
-            <img src="/path-to-uk-flag.png" alt="UK Flag" className="rounded" style={{ width: '30px', height: '20px' }} />
-          </button>
           <button className="btn btn-link text-dark p-1 position-relative">
             <Bell className="w-5 h-5" />
             <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span>
