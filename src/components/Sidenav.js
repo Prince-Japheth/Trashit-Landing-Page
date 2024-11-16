@@ -19,7 +19,7 @@ const Sidenav = () => {
       <br />
       <ul className="nav nav-pills flex-column gap-1 mb-auto">
         <li className="nav-item">
-          <a href="#!" className="nav-link active d-flex align-items-center gap-2" style={{backgroundColor: '#afffbe', color: '#52b42b', borderRadius: '10px', padding: '20px 10px'}}>
+          <a href="#!" className="nav-link active d-flex align-items-center gap-2" style={{backgroundColor: '#afffbe', color: '#52b42b', borderRadius: '10px', padding: '15px 10px'}}>
             <BarChart className="w-5 h-5" />
             Dashboard
           </a>
