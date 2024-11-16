@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Hero() {
     return (
@@ -13,7 +14,7 @@ function Hero() {
                             <p>Efficient, reliable, and sustainable waste collection tailored to your needs. Join us in
                                 making the planet cleaner, one pickup at a time.</p>
                             <div className="button">
-                                <a href="about-us.html" className="btn">Get Started</a>
+                                <Link to="/dashboard" className="btn">Sign Up</Link>
                             </div>
                         </div>
                     </div>

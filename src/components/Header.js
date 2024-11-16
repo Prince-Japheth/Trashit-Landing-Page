@@ -10,7 +10,7 @@ function Header() {
             <div className="nav-inner">
               {/* Start Navbar */}
               <nav className="navbar navbar-expand-lg">
-                <a className="navbar-brand" href="index.html">
+                <a className="navbar-brand" href="#!">
                   <img src="assets/images/logo/white-logo.svg" alt="#" />
                 </a>
                 <button
@@ -59,7 +59,7 @@ function Header() {
                 </div>
                 {/* navbar collapse */}
                 <div className="button home-btn">
-                  <a href="signup.html" className="btn">
+                  <a href="#!" className="btn">
                     Download App
                   </a>
                 </div>
