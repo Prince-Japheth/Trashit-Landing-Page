@@ -24,56 +24,24 @@ const Sidenav = () => {
       </div>
       <ul className="nav nav-pills flex-column gap-1 mb-auto">
         <li className="nav-item">
-          <a href="#" className="nav-link active d-flex align-items-center gap-2" style={{backgroundColor: '#edfef0'}}>
+          <a href="#!" className="nav-link active d-flex align-items-center gap-2" style={{backgroundColor: '#afffbe', color: '#52b42b'}}>
             <BarChart className="w-5 h-5" />
             Dashboard
           </a>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link text-dark d-flex align-items-center gap-2">
+          <a href="#!" className="nav-link text-dark d-flex align-items-center gap-2">
             <User className="w-5 h-5" />
             User
           </a>
         </li>
         <li className="nav-item">
-          <a href="#" className="nav-link text-dark d-flex align-items-center gap-2">
-            <ShoppingCart className="w-5 h-5" />
-            Product
-            <span className="badge bg-danger-subtle text-danger ms-auto">+3</span>
-          </a>
-        </li>
-        <li className="nav-item">
-          <a href="#" className="nav-link text-dark d-flex align-items-center gap-2">
-            <FileText className="w-5 h-5" />
-            Blog
-          </a>
-        </li>
-        <li className="nav-item">
-          <a href="#" className="nav-link text-dark d-flex align-items-center gap-2">
+          <a href="#!" className="nav-link text-dark d-flex align-items-center gap-2">
             <Lock className="w-5 h-5" />
             Sign in
           </a>
         </li>
-        <li className="nav-item">
-          <a href="#" className="nav-link text-dark d-flex align-items-center gap-2">
-            <XCircle className="w-5 h-5" />
-            Not found
-          </a>
-        </li>
       </ul>
-      <div className="mt-auto">
-        <div className="p-3 bg-light rounded">
-          <h6 className="text-primary mb-2">More features?</h6>
-          <p className="text-muted small mb-3">From only $69</p>
-          <img
-            src="/path-to-features-illustration.png"
-            alt="Features illustration"
-            className="mb-3 w-100"
-            style={{ maxWidth: '200px', height: 'auto' }}
-          />
-          <button className="btn btn-dark w-100">Upgrade to Pro</button>
-        </div>
-      </div>
     </div>
   );
 };
