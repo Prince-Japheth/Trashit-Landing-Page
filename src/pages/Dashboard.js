@@ -1,5 +1,5 @@
 // C:\Users\USER\Desktop\trashit-web\src\pages\Dashboard.js
-import React from 'react';
+import React, { useState } from 'react';
 import Sidenav from '../components/dashboard/Sidenav';
 import DashboardHeader from '../components/dashboard/DashboardHeader';
 import { Wallet2, LocationTick, Star1, RotateLeft, Card } from 'iconsax-react';
@@ -65,16 +65,33 @@ export default function Component() {
         };
         return colors[color] || colors.warning;
     };
-
+    const [isSidebarOpen, setSidebarOpen] = useState(false);
     return (
         <div className="d-flex vh-100 row" style={{ backgroundColor: '#f8fafc' }}>
 
-            <div className="d-none d-lg-block col-2">
-                <Sidenav />
+            {/* Overlay for mobile when sidebar is open */}
+            <div
+                className={`position-fixed top-0 start-0 h-100 w-100 bg-dark ${isSidebarOpen ? 'd-lg-none' : 'd-none'}`}
+                style={{ opacity: '0.5', zIndex: 1040 }}
+                onClick={() => setSidebarOpen(false)}
+            />
+
+            {/* Sliding Sidebar */}
+            <div
+                className="position-fixed h-100"
+                style={{
+                    width: '300px',
+                    transform: isSidebarOpen ? 'translateX(0)' : 'translateX(-100%)',
+                    transition: 'transform 0.3s ease-in-out',
+                    zIndex: 1050,
+                }}
+            >
+                <Sidenav onClose={() => setSidebarOpen(false)} />
             </div>
 
-            <div className="col-8 ps-0 ps-md-5 ms-0 ms-md-5 me-0 me-md-4 flex-grow-1 d-flex flex-column containerr" style={{ marginLeft: 0, paddingLeft: 0, paddingBottom: '80px' }}>
-                <DashboardHeader />
+            <div className="col-8 px-0 ps-lg-5 ms-0 ms-lg-5 mx-0 me-lg-4 flex-grow-1 d-flex flex-column containerr" style={{ marginLeft: 0, paddingLeft: 0, paddingBottom: '80px' }}>
+                
+        <DashboardHeader onToggleSidebar={() => setSidebarOpen(!isSidebarOpen)} />
                 <div className="flex-grow-1 p-4">
                     {/* Action Cards */}
                     <div className="row g-4">
@@ -190,10 +207,8 @@ export default function Component() {
                 </div>
             </div>
 
-            {/* Mobile Bottom Navigation - Show on mobile, hide on desktop */}
-            <div className="d-lg-none">
-                <Sidenav isMobile={true} />
-            </div>
+
+
         </div>
     );
 }
