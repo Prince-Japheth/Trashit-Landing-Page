@@ -40,7 +40,7 @@ const Sidenav = ({ onClose, isMobile = false }) => {
         </a>
         {isMobile && (
           <button 
-            className="btn btn-link text-dark p-1" 
+            className="btn btn-link text-dark p-1 mt-4" 
             onClick={onClose}
           >
             <CloseCircle size="24" />
