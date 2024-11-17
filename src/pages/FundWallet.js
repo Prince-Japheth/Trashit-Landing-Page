@@ -1,18 +1,21 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { useNavigate } from 'react-router-dom';
 import { ArrowLeft2, Bank, Card, Copy } from 'iconsax-react';
 
 export default function FundWallet() {
-  const navigate = useNavigate();
+  const location = useLocation();
   const accountNumber = '704 534 7369';
 
   const handleCopy = () => {
     alert('Account number copied!');
   };
 
+  // Check if the current path is the one for 'Fund Wallet' or any other route
+  const isActive = location.pathname === '/fund-wallet';
+
   return (
-    <div className="container py-4">
+    <div className="container">
       {/* Main Content */}
       <div className="row ms-lg-5">
         <div className="col-lg-8">
@@ -69,7 +72,7 @@ export default function FundWallet() {
                     </div>
                     <CopyToClipboard text={accountNumber} onCopy={handleCopy}>
                       <button 
-                        className="btn w-100 d-flex align-items-center justify-content-center gap-2"
+                        className={`btn w-100 d-flex align-items-center justify-content-center gap-2 ${isActive ? 'active' : ''}`}
                         style={{ 
                           backgroundColor: '#51b42b',
                           color: 'white',
@@ -108,7 +111,7 @@ export default function FundWallet() {
                   transition: 'all 0.3s ease',
                   backgroundColor: '#f8fff6'
                 }}
-                onClick={() => navigate('/card-top-up')}
+                
                 onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
                 onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
               >

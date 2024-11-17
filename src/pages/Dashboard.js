@@ -41,7 +41,7 @@ function Dashboard() {
             isMobile={window.innerWidth < 992}
           />
           {/* Dashboard Routes */}
-          <div className="p-4">
+          <div className=" px-1 px-md-4 ">
             <Routes>
               <Route index element={<Home />} />
               <Route path="fund-wallet" element={<FundWallet />} />

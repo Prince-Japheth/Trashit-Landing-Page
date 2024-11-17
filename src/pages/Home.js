@@ -9,7 +9,7 @@ export default function Home() {
         primaryLight: 'rgba(81, 180, 43, 0.05)',
     };
     return (
-        <div className="px-1 px-md-3 px-md-4 py-3">
+        <div className="py-3">
             <DashboardCards theme={theme} />
 
             <div className="my-4"></div>
