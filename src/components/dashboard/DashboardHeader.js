@@ -1,3 +1,4 @@
+// DashboardHeader.js
 import React from 'react';
 import { Bell, Settings } from 'lucide-react';
 
@@ -19,7 +20,7 @@ const DashboardHeader = () => {
             className="rounded-circle"
             style={{ width: '32px', height: '32px' }}
           />
-      <h5>Hello John Doe</h5>
+          <h5 className="d-none d-md-block mb-0">Hello John Doe</h5>
         </div>
       </div>
     </nav>

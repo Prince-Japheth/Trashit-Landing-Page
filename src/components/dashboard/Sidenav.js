@@ -1,19 +1,47 @@
+// Sidenav.js
 import React, { useState } from 'react';
 import { Home2, User, Bag2, Box, Setting2, Wallet } from 'iconsax-react';
 
-const Sidenav = () => {
-  const [activeItem, setActiveItem] = useState('Dashboard'); // Tracks active button
+const Sidenav = ({ isMobile = false }) => {
+  const [activeItem, setActiveItem] = useState('Dashboard');
 
   const navItems = [
     { id: 'Dashboard', icon: <Home2 size="20" variant={activeItem === 'Dashboard' ? 'Bold' : 'Linear'} />, label: 'Dashboard' },
-    { id: 'FundWallet', icon: <Wallet size="20" variant={activeItem === 'FundWallet' ? 'Bold' : 'Linear'} />, label: 'Fund Wallet' },
-    { id: 'RequestPickup', icon: <Bag2 size="20" variant={activeItem === 'RequestPickup' ? 'Bold' : 'Linear'} />, label: 'Request Pickup' },
-    { id: 'RecycleTokens', icon: <Box size="20" variant={activeItem === 'RecycleTokens' ? 'Bold' : 'Linear'} />, label: 'Recycle Tokens' },
-    { id: 'SubscriptionPlan', icon: <Wallet size="20" variant={activeItem === 'SubscriptionPlan' ? 'Bold' : 'Linear'} />, label: 'Subscription Plan' },
-    { id: 'User', icon: <User size="20" variant={activeItem === 'User' ? 'Bold' : 'Linear'} />, label: 'User' },
-    { id: 'Settings', icon: <Setting2 size="20" variant={activeItem === 'Settings' ? 'Bold' : 'Linear'} />, label: 'Settings' },
+    { id: 'FundWallet', icon: <Wallet size="20" variant={activeItem === 'FundWallet' ? 'Bold' : 'Linear'} />, label: 'Fund' },
+    { id: 'RequestPickup', icon: <Bag2 size="20" variant={activeItem === 'RequestPickup' ? 'Bold' : 'Linear'} />, label: 'Pickup' },
+    { id: 'RecycleTokens', icon: <Box size="20" variant={activeItem === 'RecycleTokens' ? 'Bold' : 'Linear'} />, label: 'Tokens' },
+    { id: 'User', icon: <User size="20" variant={activeItem === 'User' ? 'Bold' : 'Linear'} />, label: 'Profile' },
   ];
 
+  if (isMobile) {
+    return (
+      <div
+        className="bg-white fixed-bottom d-flex justify-content-around align-items-center py-2"
+        style={{
+          borderTop: '1px solid #f6f7f8',
+          boxShadow: '0 -2px 10px rgba(0,0,0,0.05)',
+        }}
+      >
+        {navItems.slice(0, 5).map((item) => (
+          <a
+            key={item.id}
+            href="#!"
+            className="text-decoration-none d-flex flex-column align-items-center gap-1"
+            style={{
+              color: activeItem === item.id ? '#52b42b' : '#6c757d',
+              fontSize: '0.75rem',
+            }}
+            onClick={() => setActiveItem(item.id)}
+          >
+            {item.icon}
+            <span>{item.label}</span>
+          </a>
+        ))}
+      </div>
+    );
+  }
+
+  // Desktop sidebar - keep your existing return statement for desktop view
   return (
     <div
       className="d-flex flex-column flex-shrink-0 p-3 bg-white"
@@ -44,7 +72,7 @@ const Sidenav = () => {
                 color: activeItem === item.id ? '#52b42b' : 'inherit',
                 borderRadius: '10px',
                 padding: '15px 10px',
-                transition: 'all 0.3s ease', // Animation for hover/active
+                transition: 'all 0.3s ease',
               }}
               onClick={() => setActiveItem(item.id)}
             >
