@@ -15,7 +15,6 @@ const DashboardHeader = ({ onToggleSidebar }) => {
         position: 'sticky', 
         top: 0, 
         zIndex: 1000,
-        backgroundColor: 'rgba(255, 255, 255, 0.8)'
       }}>
       <div className="container-fluid">
         {/* Only show menu button on mobile */}
