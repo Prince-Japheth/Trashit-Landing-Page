@@ -9,7 +9,7 @@ const DashboardHeader = ({ onToggleSidebar }) => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg py-md-2 px-3 pt-4" 
+    <nav className="navbar navbar-expand-lg py-2 px-md-3 pt-4" 
       style={{ 
         backdropFilter: 'blur(10px)', 
         position: 'sticky', 
