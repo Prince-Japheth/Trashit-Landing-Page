@@ -14,11 +14,11 @@ function Hero() {
                             <p>Efficient, reliable, and sustainable waste collection tailored to your needs. Join us in
                                 making the planet cleaner, one pickup at a time.</p>
                             <div className="button">
-                                <Link to="/dashboard" className="btn">Sign Up</Link>
+                                <Link to="/dashboard" className="btn">Get Started</Link>
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-7 col-12">
+                     <div className="col-lg-7 col-12">
                         <div className="hero-image wow fadeInRight" data-wow-delay=".4s">
                             <img className="main-image" src="https://via.placeholder.com/700x1000" alt="Trashit Services App" />
                         </div>
