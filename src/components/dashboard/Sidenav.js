@@ -1,8 +1,7 @@
-// Sidenav.js
 import React, { useState } from 'react';
 import { Home2, User, Bag2, Box, Setting2, Wallet, CloseCircle } from 'iconsax-react';
 
-const Sidenav = ({ onClose }) => {
+const Sidenav = ({ onClose, isMobile = false }) => {
   const [activeItem, setActiveItem] = useState('Dashboard');
 
   const navItems = [
@@ -15,24 +14,37 @@ const Sidenav = ({ onClose }) => {
     { id: 'Settings', icon: <Setting2 size="20" variant={activeItem === 'Settings' ? 'Bold' : 'Linear'} />, label: 'Settings' },
   ];
 
+  const sidenavStyles = isMobile ? {
+    width: '300px',
+    borderRight: '1px solid #f6f7f8',
+    zIndex: 2000,
+  } : {
+    width: '300px',
+    height: '100vh',
+    borderRight: '1px solid #f6f7f8',
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    zIndex: 2000,
+  };
+
   return (
     <div
       className="d-flex flex-column flex-shrink-0 p-3 bg-white h-100"
-      style={{
-        width: '300px',
-        borderRight: '1px solid #f6f7f8',
-      }}
+      style={sidenavStyles}
     >
       <div className="d-flex justify-content-between align-items-center">
         <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
           <img src="./components/logo.svg" alt="Logo" className="me-2" style={{ width: '32px', height: '32px' }} />
         </a>
-        <button 
-          className="btn btn-link text-dark p-1 d-lg-none" 
-          onClick={onClose}
-        >
-          <CloseCircle size="24" />
-        </button>
+        {isMobile && (
+          <button 
+            className="btn btn-link text-dark p-1" 
+            onClick={onClose}
+          >
+            <CloseCircle size="24" />
+          </button>
+        )}
       </div>
       <br />
       <br />
@@ -53,7 +65,7 @@ const Sidenav = ({ onClose }) => {
               }}
               onClick={() => {
                 setActiveItem(item.id);
-                onClose?.();
+                if (isMobile) onClose?.();
               }}
             >
               {item.icon}

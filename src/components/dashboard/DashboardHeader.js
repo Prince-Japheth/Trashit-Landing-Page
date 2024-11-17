@@ -1,20 +1,19 @@
-// DashboardHeader.js
 import React from 'react';
 import { Bell, Settings, Menu } from 'lucide-react';
 
 const DashboardHeader = ({ onToggleSidebar }) => {
   return (
-    <nav className="navbar navbar-expand-lg py-2 px-3 pt-4 bg-white" 
+    <nav className="navbar navbar-expand-lg py-2 px-3 pt-4" 
       style={{ 
         backdropFilter: 'blur(10px)', 
         position: 'sticky', 
         top: 0, 
         zIndex: 1000,
-        borderBottom: '1px solid #f6f7f8'
       }}>
       <div className="container-fluid">
+        {/* Only show menu button on mobile */}
         <button 
-          className="btn btn-link text-dark p-1 d-flex align-items-center" 
+          className="btn btn-link text-dark p-1 d-lg-none d-flex align-items-center" 
           onClick={onToggleSidebar}
         >
           <Menu className="w-6 h-6" />

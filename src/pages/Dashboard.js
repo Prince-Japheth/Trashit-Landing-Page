@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Sidenav from '../components/dashboard/Sidenav';
 import DashboardHeader from '../components/dashboard/DashboardHeader';
 import { Wallet2, LocationTick, Star1, RotateLeft, Card } from 'iconsax-react';
+import '../../src/index.css';
 
 export default function Component() {
     // Theme colors
@@ -69,30 +70,42 @@ export default function Component() {
     return (
         <div className="d-flex vh-100 row" style={{ backgroundColor: '#f8fafc' }}>
 
-            {/* Overlay for mobile when sidebar is open */}
-            <div
-                className={`position-fixed top-0 start-0 h-100 w-100 bg-dark ${isSidebarOpen ? 'd-lg-none' : 'd-none'}`}
-                style={{ opacity: '0.5', zIndex: 1040 }}
-                onClick={() => setSidebarOpen(false)}
-            />
 
-            {/* Sliding Sidebar */}
-            <div
-                className="position-fixed h-100"
-                style={{
-                    width: '300px',
-                    transform: isSidebarOpen ? 'translateX(0)' : 'translateX(-100%)',
-                    transition: 'transform 0.3s ease-in-out',
-                    zIndex: 1050,
-                }}
-            >
-                <Sidenav onClose={() => setSidebarOpen(false)} />
+            {/* Mobile Sidebar - Sliding */}
+            <>
+                <div
+                    className={`position-fixed top-0 start-0 h-100 w-100 bg-dark d-lg-none ${isSidebarOpen ? 'd-block' : 'd-none'}`}
+                    style={{ opacity: '0.5', zIndex: 1040 }}
+                    onClick={() => setSidebarOpen(false)}
+                />
+
+                <div
+                    className="position-fixed h-100 d-lg-none"
+                    style={{
+                        width: '300px',
+                        transform: isSidebarOpen ? 'translateX(0)' : 'translateX(-100%)',
+                        transition: 'transform 0.3s ease-in-out',
+                        zIndex: 1050,
+                    }}
+                >
+                    <Sidenav onClose={() => setSidebarOpen(false)} isMobile={true} />
+                </div>
+            </>
+
+            {/* Desktop Sidebar - Fixed */}
+            <div className="d-none d-lg-block col-xl-2 col-lg-3">
+                <Sidenav />
             </div>
 
-            <div className="col-8 px-0 ps-lg-5 ms-0 ms-lg-5 mx-0 me-lg-4 flex-grow-1 d-flex flex-column containerr" style={{ marginLeft: 0, paddingLeft: 0, paddingBottom: '80px' }}>
-                
-        <DashboardHeader onToggleSidebar={() => setSidebarOpen(!isSidebarOpen)} />
-                <div className="flex-grow-1 p-4">
+            <div className="col-5 flex-grow-1 d-flex flex-column">
+
+                <DashboardHeader
+                    onToggleSidebar={() => setSidebarOpen(!isSidebarOpen)}
+                    isMobile={window.innerWidth < 992}
+                />
+                <br />
+
+                <div className="flex-grow-1 ps-2 p-0 p-md-4 ms-md-5 m-0">
                     {/* Action Cards */}
                     <div className="row g-4">
                         <div className="col-12 col-md-6">
@@ -142,7 +155,7 @@ export default function Component() {
                     <div className="my-4"></div>
 
                     {/* Recent Pickups Section */}
-                    <div className="bg-white p-4 mb-4" style={{ ...cardStyle, cursor: 'default' }}>
+                    <div className="recent-pickups-section bg-white p-4 mb-4" style={{ ...cardStyle, cursor: 'default' }}>
                         <div className="mb-4">
                             <div className="d-flex justify-content-between align-items-center mb-4">
                                 <h5 className="fw-bold mb-0">Recent Pickups</h5>
@@ -152,7 +165,7 @@ export default function Component() {
                             {recentPickups.map((pickup, index) => (
                                 <div
                                     key={index}
-                                    className="p-4 mb-3 bg-light border-0"
+                                    className="pickup-card p-4 mb-3 bg-light border-0"
                                     style={{
                                         borderRadius: '12px',
                                         transition: 'transform 0.2s',
@@ -203,6 +216,7 @@ export default function Component() {
                             ))}
                         </div>
                     </div>
+
 
                 </div>
             </div>

@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.recent-pickups-section {
+  padding: 1rem;
+  background-color: white;
+}
+
+@media (max-width: 576px) {
+  .recent-pickups-section {
+    padding: 0 !important;
+    background-color: transparent !important;
+  }
+
+  .pickup-card {
+    background-color: white !important;
+  }
+}
