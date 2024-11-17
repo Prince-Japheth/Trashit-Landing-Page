@@ -9,7 +9,7 @@ import Footer from './components/landing-page/Footer';
 import Dashboard from './pages/Dashboard';
 
 function App() {
-    return (
+    return ( 
         <Router>
             <Routes>
                 {/* Dashboard Route */}

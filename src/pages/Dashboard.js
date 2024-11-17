@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Sidenav from '../components/dashboard/Sidenav';
 import DashboardHeader from '../components/dashboard/DashboardHeader';
 // import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './Home';
+import Home from './Home'; 
 
 function App() {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
