@@ -103,9 +103,8 @@ export default function Component() {
                     onToggleSidebar={() => setSidebarOpen(!isSidebarOpen)}
                     isMobile={window.innerWidth < 992}
                 />
-                <br />
 
-                <div className="flex-grow-1 ps-2 p-0 p-md-4 ms-md-5 m-0">
+                <div className="flex-grow-1 ps-2 p-0 p-md-4 ms-md-5 m-0 mt-3 mt-md-0">
                     {/* Action Cards */}
                     <div className="row g-4">
                         <div className="col-12 col-md-6">

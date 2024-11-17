@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Home2, User, Bag2, Box, Setting2, Wallet, CloseCircle } from 'iconsax-react';
+import logo from '../../assets/logo/logo.png';
 
 const Sidenav = ({ onClose, isMobile = false }) => {
   const [activeItem, setActiveItem] = useState('Dashboard');
@@ -33,9 +34,9 @@ const Sidenav = ({ onClose, isMobile = false }) => {
       className="d-flex flex-column flex-shrink-0 p-3 bg-white h-100"
       style={sidenavStyles}
     >
-      <div className="d-flex justify-content-between align-items-center">
+      <div className="d-flex justify-content-center align-items-center">
         <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
-          <img src="./components/logo.svg" alt="Logo" className="me-2" style={{ width: '32px', height: '32px' }} />
+          <img src={logo} alt="Logo" className="me-2 mt-4" style={{ width: '150px' }} />
         </a>
         {isMobile && (
           <button 
