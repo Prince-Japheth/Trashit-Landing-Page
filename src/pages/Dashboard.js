@@ -67,13 +67,13 @@ export default function Component() {
     };
 
     return (
-        <div className="d-flex vh-100" style={{ backgroundColor: '#f8fafc' }}>
+        <div className="d-flex vh-100 row" style={{ backgroundColor: '#f8fafc' }}>
 
-            <div className="d-none d-lg-block">
+            <div className="d-none d-lg-block col-2">
                 <Sidenav />
             </div>
 
-            <div className="flex-grow-1 d-flex flex-column" style={{ marginLeft: 0, paddingLeft: 0, paddingBottom: '80px' }}>
+            <div className="col-8 ps-0 ps-md-5 ms-0 ms-md-5 me-0 me-md-4 flex-grow-1 d-flex flex-column containerr" style={{ marginLeft: 0, paddingLeft: 0, paddingBottom: '80px' }}>
                 <DashboardHeader />
                 <div className="flex-grow-1 p-4">
                     {/* Action Cards */}
@@ -197,3 +197,4 @@ export default function Component() {
         </div>
     );
 }
+
