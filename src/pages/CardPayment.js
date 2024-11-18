@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft2, Lock, Card as CardIcon } from 'iconsax-react';
+import { Lock, Card as CardIcon } from 'iconsax-react';
 
 export default function CardPayment() {
   const [cardNumber, setCardNumber] = useState('');
