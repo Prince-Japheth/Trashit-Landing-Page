@@ -1,5 +1,5 @@
 import React from 'react';
-import { HambergerMenu, Notification, Setting2 } from 'iconsax-react';
+import { HambergerMenu, Notification } from 'iconsax-react';
 import DefaultProfilePicture from '../../assets/default-profile.jpg';
 
 const DashboardHeader = ({ onToggleSidebar }) => {
@@ -36,12 +36,12 @@ const DashboardHeader = ({ onToggleSidebar }) => {
             />
             <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">2</span>
           </button>
-          <button className="btn btn-link text-dark p-1 position-relative">
+          {/* <button className="btn btn-link text-dark p-1 position-relative">
             <Setting2
               size={theme.iconSize}
               variant={theme.iconVariant}
             />
-          </button>
+          </button> */}
           <img
             src={DefaultProfilePicture}
             alt="Profile"

@@ -7,6 +7,7 @@ const ProfilePage = () => {
     require("../assets/default-profile.jpg")
   );
   const [referralLinkCopied, setReferralLinkCopied] = useState(false);
+  const [membershipStatus, setMembershipStatus] = useState("Non-Estate Member"); // New state for membership status
   const referredUsers = [
     { name: "John Smith", email: "john.smith@gmail.com" },
     { name: "Emily White", email: "emily.white@gmail.com" },
@@ -103,7 +104,7 @@ const ProfilePage = () => {
               Jane Doe
             </h3>
             <p style={{ color: "#777", margin: 0, fontSize: "0.9rem" }}>
-              Non-Estate Member
+              {membershipStatus}
             </p>
           </div>
           <button
@@ -176,6 +177,25 @@ const ProfilePage = () => {
             ></textarea>
           </div>
 
+          {/* Membership Status */}
+          {isEditing && (
+            <div className="col-md-12">
+              <label className="form-label">Membership Status</label>
+              <select
+                className="form-select"
+                value={membershipStatus}
+                onChange={(e) => setMembershipStatus(e.target.value)}
+                style={{
+                  backgroundColor: "#fff",
+                  border: "1px solid #ddd",
+                }}
+              >
+                <option value="Non-Estate Member">Non-Estate Member</option>
+                <option value="Estate Member">Estate Member</option>
+              </select>
+            </div>
+          )}
+
           {/* Stats */}
           <div className="col-md-4">
             <label className="form-label">Successful Pickups</label>
@@ -244,6 +264,7 @@ const ProfilePage = () => {
               <p>No referred users yet.</p>
             )}
           </ul>
+
           {/* Referral Link */}
           <div className="d-flex align-items-center mt-3">
             <input
@@ -254,20 +275,19 @@ const ProfilePage = () => {
               style={{
                 backgroundColor: "#f7f7f7",
                 border: "1px solid #ddd",
-                color: "#333",
-                width: '80%',
               }}
             />
             <button
-              className="btn ms-2 d-flex align-items-center ms-auto gap-2"
-              onClick={copyReferralLink}
+              className="btn ms-3"
               style={{
                 backgroundColor: "#51b42b",
                 color: "#fff",
+                fontWeight: "600",
               }}
+              onClick={copyReferralLink}
             >
-              <Copy size="20" color="#fff" />
-              {referralLinkCopied ? "Copied!" : "Copy Link"}
+                <Copy size="20" color="#fff" />
+              {referralLinkCopied ? "Link Copied!" : "Copy"}
             </button>
           </div>
         </div>
