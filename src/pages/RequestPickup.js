@@ -14,7 +14,6 @@ const center = {
   lng: 0
 };
 
-// Add custom styles to position the autocomplete suggestions above the input
 const customStyles = `
   .pac-container {
     margin-top: -12px;
@@ -45,8 +44,6 @@ const customStyles = `
 `;
 
 const RequestPickup = () => {
-  const [map, setMap] = useState(null);
-  const [searchBox, setSearchBox] = useState(null);
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [currentLocation, setCurrentLocation] = useState(center);
   const [isLoading, setIsLoading] = useState(true);
@@ -58,12 +55,10 @@ const RequestPickup = () => {
   const searchInputRef = useRef(null);
 
   useEffect(() => {
-    // Add custom styles to the document head
     const styleSheet = document.createElement('style');
     styleSheet.textContent = customStyles;
     document.head.appendChild(styleSheet);
 
-    // Get user's current location
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -78,14 +73,12 @@ const RequestPickup = () => {
       );
     }
 
-    // Cleanup
     return () => {
       styleSheet.remove();
     };
   }, []);
 
   const onMapLoad = (map) => {
-    setMap(map);
     setIsLoading(false);
     initializeSearchBox(map);
   };
@@ -94,7 +87,7 @@ const RequestPickup = () => {
     if (searchInputRef.current && window.google) {
       const autocomplete = new window.google.maps.places.Autocomplete(searchInputRef.current, {
         fields: ['formatted_address', 'geometry', 'name'],
-        componentRestrictions: { country: 'us' } // Optional: restrict to US
+        componentRestrictions: { country: 'us' }
       });
 
       autocomplete.addListener('place_changed', () => {
@@ -117,7 +110,6 @@ const RequestPickup = () => {
         }));
       });
 
-      // Bias results to map's viewport
       map.addListener('bounds_changed', () => {
         autocomplete.setBounds(map.getBounds());
       });
