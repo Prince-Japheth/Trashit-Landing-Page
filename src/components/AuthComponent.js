@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const AuthComponent = () => {
   const [isSignUp, setIsSignUp] = useState(true); // Toggle between Sign Up and Sign In
+  const [isEstateMember, setIsEstateMember] = useState(false); // Track the checkbox state
   const navigate = useNavigate();
 
   // Handle form submission (redirect to dashboard after successful login/signup)
@@ -11,10 +12,14 @@ const AuthComponent = () => {
     navigate('/dashboard'); // Redirect to dashboard after submission
   };
 
+  // Handle checkbox toggle
+  const handleCheckboxChange = () => {
+    setIsEstateMember((prev) => !prev);
+  };
+
   return (
     <section className="bg-white">
-
-      <header className="header navbar-areaa sticky py-0">
+<header className="header navbar-areaa sticky py-0">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-12">
@@ -24,23 +29,20 @@ const AuthComponent = () => {
                   <a className="navbar-brand" href="#!">
                     <img src="assets/images/logo/logo.svg" alt="#" />
                   </a>
-                  <div className="button home-btn">
+                  <div className="button home-btn ms-auto">
                     <a href="#!" className="btn" style={{ backgroundColor: '#28a745', color: '#fff' }}>
                       Download App
                     </a>
                   </div>
-
                 </nav>
                 {/* End Navbar */}
               </div>
             </div>
           </div>
-          {/* row */}
         </div>
-        {/* container */}
       </header>
 
-      <br /> <br/>
+      <br /> <br />
 
       <div className="container h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
@@ -57,12 +59,7 @@ const AuthComponent = () => {
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-user fa-lg me-3 fa-fw" />
                           <div className="form-outline flex-fill mb-0">
-                            <input
-                              type="text"
-                              id="form3Example1c"
-                              className="form-control"
-                              required
-                            />
+                            <input type="text" id="form3Example1c" className="form-control" required />
                             <label className="form-label" htmlFor="form3Example1c">
                               Your Name
                             </label>
@@ -73,12 +70,7 @@ const AuthComponent = () => {
                       <div className="d-flex flex-row align-items-center mb-4">
                         <i className="fas fa-envelope fa-lg me-3 fa-fw" />
                         <div className="form-outline flex-fill mb-0">
-                          <input
-                            type="email"
-                            id="form3Example3c"
-                            className="form-control"
-                            required
-                          />
+                          <input type="email" id="form3Example3c" className="form-control" required />
                           <label className="form-label" htmlFor="form3Example3c">
                             Your Email
                           </label>
@@ -88,12 +80,7 @@ const AuthComponent = () => {
                       <div className="d-flex flex-row align-items-center mb-4">
                         <i className="fas fa-lock fa-lg me-3 fa-fw" />
                         <div className="form-outline flex-fill mb-0">
-                          <input
-                            type="password"
-                            id="form3Example4c"
-                            className="form-control"
-                            required
-                          />
+                          <input type="password" id="form3Example4c" className="form-control" required />
                           <label className="form-label" htmlFor="form3Example4c">
                             Password
                           </label>
@@ -117,18 +104,40 @@ const AuthComponent = () => {
                         </div>
                       )}
 
-                      <div className="form-check d-flex justify-content-center mb-5">
-                        <input
-                          className="form-check-input me-2"
-                          type="checkbox"
-                          value=""
-                          id="form2Example3c"
-                          required
-                        />
-                        <label className="form-check-label" htmlFor="form2Example3">
-                          Estate Member
-                        </label>
-                      </div>
+                      {isSignUp && (
+                        <div className="form-check d-flex justify-content-center mb-5">
+                          <input
+                            className="form-check-input me-2"
+                            type="checkbox"
+                            value=""
+                            id="form2Example3c"
+                            checked={isEstateMember}
+                            onChange={handleCheckboxChange} // Toggle the checkbox state
+                          />
+                          <label className="form-check-label" htmlFor="form2Example3">
+                            Estate Member
+                          </label>
+                        </div>
+                      )}
+
+                      {/* Conditionally render the estate select dropdown */}
+                      {isEstateMember && (
+                        <div className="d-flex flex-row align-items-center mb-4">
+                          <i className="fas fa-building fa-lg me-3 fa-fw" />
+                          <div className="form-outline flex-fill mb-0">
+                            <select id="estateSelect" className="form-control" required>
+                              <option value="">Select your estate</option>
+                              <option value="estate1">Estate 1</option>
+                              <option value="estate2">Estate 2</option>
+                              <option value="estate3">Estate 3</option>
+                              {/* Add more estates as needed */}
+                            </select>
+                            <label className="form-label" htmlFor="estateSelect">
+                              Choose Estate
+                            </label>
+                          </div>
+                        </div>
+                      )}
 
                       <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                         <button
