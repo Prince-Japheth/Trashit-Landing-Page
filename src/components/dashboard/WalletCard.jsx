@@ -1,5 +1,4 @@
 import React from 'react';
-import { Wallet2 } from 'iconsax-react';
 
 const WalletCard = ({ icon: Icon, value, label, theme }) => {
     const cardStyle = {
