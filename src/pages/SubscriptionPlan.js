@@ -1,5 +1,23 @@
 import React from 'react';
 
+const additionalServices = [
+  {
+    title: 'Waste audit and assessment',
+    price: '4,000',
+    image: 'https://easydispose.netlify.app/images/audit.svg',
+  },
+  {
+    title: 'Waste reduction and recycling consultation',
+    price: '2,500',
+    image: 'https://easydispose.netlify.app/images/consultation.svg',
+  },
+  {
+    title: 'Special event waste management',
+    price: '15,000',
+    image: 'https://easydispose.netlify.app/images/event.svg',
+  },
+];
+
 const plans = [
   {
     title: 'Bronze Package',
@@ -41,26 +59,101 @@ const SubscriptionPlan = () => {
         minHeight: '100vh',
       }}
     >
-      <div className="text-center mb-5">
-        <h2
-          style={{
-            fontWeight: '700',
-            color: '#333',
-            fontSize: '2.5rem',
-          }}
-        >
-          Choose Your Plan
-        </h2>
-        <p
-          style={{
-            color: '#666',
-            fontSize: '1rem',
-            marginTop: '10px',
-          }}
-        >
-          Select the package that best fits your lifestyle or business needs.
-        </p>
+
+      {/* Additional Services Cards */}
+      <div className="row g-4 mb-4">
+        {additionalServices.map((service, index) => (
+          <div key={index} className="col-md-4">
+            <div
+              className="service-card"
+              style={{
+                backgroundColor: '#fff',
+                borderRadius: '15px',
+                boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
+                overflow: 'hidden',
+                transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                height: 'auto',
+                display: 'flex',
+                flexDirection: 'column',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.2)';
+                e.currentTarget.style.transform = 'translateY(-5px)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
+              <div className="text-center p-3">
+                <div className="d-flex align-items-center mb-3">
+                  <div
+                    style={{
+                      width: '60px',
+                      height: '60px',
+                      marginRight: '1rem',
+                    }}
+                  >
+                    <img
+                      src={service.image}
+                      alt={`${service.title} icon`}
+                      style={{
+                        maxWidth: '100%',
+                        maxHeight: '100%',
+                        objectFit: 'contain',
+                      }}
+                    />
+                  </div>
+                  <div className="text-start">
+                    <h5
+                      style={{
+                        color: '#333',
+                        fontWeight: '600',
+                        fontSize: '1rem',
+                        marginBottom: '0.25rem',
+                      }}
+                    >
+                      {service.title}
+                    </h5>
+                    <h6
+                      style={{
+                        fontSize: '1rem',
+                        color: '#51b42b',
+                        marginBottom: '0',
+                      }}
+                    >
+                      NGN {service.price}/
+                      <span style={{ fontSize: '0.85rem', color: '#777' }}>
+                        month
+                      </span>
+                    </h6>
+                  </div>
+                </div>
+                <button
+                  className="btn btn-dark"
+                  style={{
+                    backgroundColor: '#51b42b',
+                    border: 'none',
+                    color: '#fff',
+                    padding: '0.5rem 1rem',
+                    borderRadius: '5px',
+                    fontWeight: '600',
+                    fontSize: '0.9rem',
+                    transition: 'background-color 0.3s ease',
+                  }}
+                  onMouseEnter={(e) => (e.target.style.backgroundColor = '#3b8e22')}
+                  onMouseLeave={(e) => (e.target.style.backgroundColor = '#51b42b')}
+                >
+                  Subscribe
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
+
+
+      {/* Original Subscription Plans */}
       <div className="row g-4">
         {plans.map((plan, index) => (
           <div key={index} className="col-md-4">
@@ -72,7 +165,7 @@ const SubscriptionPlan = () => {
                 boxShadow: '0 6px 15px rgba(0, 0, 0, 0.1)',
                 overflow: 'hidden',
                 transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-                height: '100%', // Ensures cards are equal height
+                height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
               }}
@@ -99,7 +192,7 @@ const SubscriptionPlan = () => {
                     style={{
                       maxWidth: '100%',
                       maxHeight: '100%',
-                      objectFit: 'contain', // Maintains aspect ratio
+                      objectFit: 'contain',
                     }}
                   />
                 </div>
@@ -144,12 +237,8 @@ const SubscriptionPlan = () => {
                     fontWeight: '600',
                     transition: 'background-color 0.3s ease',
                   }}
-                  onMouseEnter={(e) =>
-                    (e.target.style.backgroundColor = '#3b8e22')
-                  }
-                  onMouseLeave={(e) =>
-                    (e.target.style.backgroundColor = '#51b42b')
-                  }
+                  onMouseEnter={(e) => (e.target.style.backgroundColor = '#3b8e22')}
+                  onMouseLeave={(e) => (e.target.style.backgroundColor = '#51b42b')}
                 >
                   Get started
                 </button>
