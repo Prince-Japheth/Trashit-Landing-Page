@@ -57,7 +57,7 @@ function Dashboard() {
               <Route path="profile" element={<ProfilePage />} />
             </Routes>
           </div>
-        </div>
+        </div> 
       </div>
     </div>
   );

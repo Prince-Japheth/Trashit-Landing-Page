@@ -9,6 +9,7 @@ import ForgotPassword from './components/ForgotPassword';
 import FundWallet from './pages/FundWallet';
 import CardPayment from './pages/CardPayment';
 import RequestPickup from './pages/RequestPickup';
+import SubscriptionPlan from './pages/SubscriptionPlan';
 import ProfilePage from './pages/ProfilePage';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="fund-wallet" element={<FundWallet />} />
           <Route path="card-payment" element={<CardPayment />} />
           <Route path="request-pickup" element={<RequestPickup />} />
+          <Route path="subscription-plan" element={<SubscriptionPlan />} />
           <Route path="profile" element={<ProfilePage />} />
         </Route>
       </Routes>

@@ -1,3 +1,4 @@
+// C:\Users\USER\Desktop\trashit-web\src\components\dashboard\DashboardHeader.js
 import React from 'react';
 import { HambergerMenu, Notification } from 'iconsax-react';
 import DefaultProfilePicture from '../../assets/default-profile.jpg';
