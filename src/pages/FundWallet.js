@@ -103,7 +103,7 @@ export default function FundWallet() {
             </div>
 
             {/* Card Payment Option */}
-            <Link to="../card-payment" className="col-12">
+            <Link to="../card-payment" className="col-12 text-decoration-none mb-5">
               <div 
                 className="card border-0 shadow-sm hover-shadow" 
                 style={{ 
