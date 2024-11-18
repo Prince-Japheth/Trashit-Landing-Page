@@ -1,6 +1,5 @@
 import React from 'react';
 import PickupCard from './PickupCard';
-import '../../index.css';
 
 const RecentPickups = ({ pickups, theme }) => {
 

@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import '../index.css';
 import Sidenav from '../components/dashboard/Sidenav';
 import DashboardHeader from '../components/dashboard/DashboardHeader';
 import Home from './Home';
 import FundWallet from './FundWallet';
+import RequestPickup from './RequestPickup';
 
 function Dashboard() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -45,6 +47,7 @@ function Dashboard() {
             <Routes>
               <Route index element={<Home />} />
               <Route path="fund-wallet" element={<FundWallet />} />
+              <Route path="request-pickup" element={<RequestPickup />} />
             </Routes>
           </div>
         </div>

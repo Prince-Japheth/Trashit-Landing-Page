@@ -1,6 +1,5 @@
 import React from 'react';
 import { LocationTick, Star1 } from 'iconsax-react';
-import '../../index.css';
 import DefaultProfilePicture from '../../assets/default-profile.jpg';
 
 const PickupCard = ({ pickup, theme }) => {

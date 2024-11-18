@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Home2, User, Bag2, Box, Setting2, Wallet, CloseCircle } from 'iconsax-react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/logo/logo.png';
 
 const Sidenav = ({ onClose, isMobile = false }) => {
-  const [activeItem, setActiveItem] = useState('Dashboard');
-
+  const location = useLocation();
+  
   const navItems = [
-    { id: 'Dashboard', icon: <Home2 size="20" variant={activeItem === 'Dashboard' ? 'Bold' : 'Linear'} />, label: 'Dashboard', path: '/dashboard' },
-    { id: 'FundWallet', icon: <Wallet size="20" variant={activeItem === 'FundWallet' ? 'Bold' : 'Linear'} />, label: 'Fund Wallet', path: '/dashboard/fund-wallet' },
-    { id: 'RequestPickup', icon: <Bag2 size="20" variant={activeItem === 'RequestPickup' ? 'Bold' : 'Linear'} />, label: 'Request Pickup', path: '/dashboard/request-pickup' },
-    { id: 'RecycleTokens', icon: <Box size="20" variant={activeItem === 'RecycleTokens' ? 'Bold' : 'Linear'} />, label: 'Recycle Tokens', path: '/dashboard/recycle-tokens' },
-    { id: 'SubscriptionPlan', icon: <Wallet size="20" variant={activeItem === 'SubscriptionPlan' ? 'Bold' : 'Linear'} />, label: 'Subscription Plan', path: '/dashboard/subscription-plan' },
-    { id: 'User', icon: <User size="20" variant={activeItem === 'User' ? 'Bold' : 'Linear'} />, label: 'User', path: '/dashboard/user' },
-    { id: 'Settings', icon: <Setting2 size="20" variant={activeItem === 'Settings' ? 'Bold' : 'Linear'} />, label: 'Settings', path: '/dashboard/settings' },
+    { id: 'Dashboard', icon: Home2, label: 'Dashboard', path: '/dashboard' },
+    { id: 'FundWallet', icon: Wallet, label: 'Fund Wallet', path: '/dashboard/fund-wallet' },
+    { id: 'RequestPickup', icon: Bag2, label: 'Request Pickup', path: '/dashboard/request-pickup' },
+    { id: 'RecycleTokens', icon: Box, label: 'Recycle Tokens', path: '/dashboard/recycle-tokens' },
+    { id: 'SubscriptionPlan', icon: Wallet, label: 'Subscription Plan', path: '/dashboard/subscription-plan' },
+    { id: 'User', icon: User, label: 'User', path: '/dashboard/user' },
+    { id: 'Settings', icon: Setting2, label: 'Settings', path: '/dashboard/settings' },
   ];
 
   const sidenavStyles = isMobile ? {
@@ -51,29 +51,35 @@ const Sidenav = ({ onClose, isMobile = false }) => {
       <br />
       <br />
       <ul className="nav nav-pills flex-column gap-3 mb-auto">
-        {navItems.map((item) => (
-          <li key={item.id} className="nav-item">
-            <Link
-              to={item.path}
-              className={`nav-link d-flex align-items-center gap-2 ${activeItem === item.id ? 'active' : 'text-dark'
-                }`}
-              style={{
-                backgroundColor: activeItem === item.id ? '#afffbe' : 'transparent',
-                color: activeItem === item.id ? '#52b42b' : 'inherit',
-                borderRadius: '10px',
-                padding: '15px 10px',
-                transition: 'all 0.3s ease',
-              }}
-              onClick={() => {
-                setActiveItem(item.id);
-                if (isMobile) onClose?.();
-              }}
-            >
-              {item.icon}
-              {item.label}
-            </Link>
-          </li>
-        ))}
+        {navItems.map((item) => {
+          const Icon = item.icon;
+          const isActive = location.pathname === item.path;
+          
+          return (
+            <li key={item.id} className="nav-item">
+              <Link
+                to={item.path}
+                className={`nav-link d-flex align-items-center gap-2 ${isActive ? 'active' : 'text-dark'}`}
+                style={{
+                  backgroundColor: isActive ? '#afffbe' : 'transparent',
+                  color: isActive ? '#52b42b' : 'inherit',
+                  borderRadius: '10px',
+                  padding: '15px 10px',
+                  transition: 'all 0.3s ease',
+                }}
+                onClick={() => {
+                  if (isMobile) onClose?.();
+                }}
+              >
+                <Icon 
+                  size="20" 
+                  variant={isActive ? 'Bold' : 'Linear'} 
+                />
+                {item.label}
+              </Link>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
