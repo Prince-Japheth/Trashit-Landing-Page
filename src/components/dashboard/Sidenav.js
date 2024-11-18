@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home2, User, Trash, Box, Setting2, Wallet, CloseCircle } from 'iconsax-react';
+import { Home2, User, Trash, Box, Wallet, CloseCircle } from 'iconsax-react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/logo/logo.png';
 
@@ -12,8 +12,8 @@ const Sidenav = ({ onClose, isMobile = false }) => {
     { id: 'RequestPickup', icon: Trash, label: 'Request Pickup', path: '/dashboard/request-pickup' },
     { id: 'RecycleTokens', icon: Box, label: 'Recycle Tokens', path: '/dashboard/recycle-tokens' },
     { id: 'SubscriptionPlan', icon: Wallet, label: 'Subscription Plan', path: '/dashboard/subscription-plan' },
-    { id: 'User', icon: User, label: 'User', path: '/dashboard/user' },
-    { id: 'Settings', icon: Setting2, label: 'Settings', path: '/dashboard/settings' },
+    { id: 'User', icon: User, label: 'Profile', path: '/dashboard/profile' },
+    // { id: 'Settings', icon: Setting2, label: 'Settings', path: '/dashboard/settings' },
   ];
 
   const sidenavStyles = isMobile ? {

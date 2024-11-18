@@ -9,6 +9,7 @@ import Home from './Home';
 import FundWallet from './FundWallet';
 import RequestPickup from './RequestPickup';
 import SubscriptionPlan from './SubscriptionPlan';
+import ProfilePage from './ProfilePage';
 
 function Dashboard() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -50,6 +51,7 @@ function Dashboard() {
               <Route path="fund-wallet" element={<FundWallet />} />
               <Route path="request-pickup" element={<RequestPickup />} />
               <Route path="subscription-plan" element={<SubscriptionPlan />} />
+              <Route path="profile" element={<ProfilePage />} />
             </Routes>
           </div>
         </div>
