@@ -1,5 +1,6 @@
 import React from 'react';
 import { LocationTick, Star1 } from 'iconsax-react';
+import '../../index.css';
 import DefaultProfilePicture from '../../assets/default-profile.jpg';
 
 const PickupCard = ({ pickup, theme }) => {
@@ -19,7 +20,7 @@ const PickupCard = ({ pickup, theme }) => {
 
     return (
         <div
-            className="pickup-card p-3 p-md-4 mb-3 bg-light"
+            className="pickup-card p-3 p-md-4 mb-3"
             style={{
                 borderRadius: '12px',
                 transition: 'transform 0.2s',

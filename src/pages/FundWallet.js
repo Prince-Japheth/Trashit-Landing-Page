@@ -15,7 +15,7 @@ export default function FundWallet() {
   const isActive = location.pathname === '/fund-wallet';
 
   return (
-    <div className="container">
+    <div className="">
       {/* Main Content */}
       <div className="row ms-lg-5">
         <div className="col-lg-8">

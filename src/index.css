@@ -14,12 +14,20 @@ code {
 
 .recent-pickups-section {
   padding: 1rem;
-  background-color: white;
+  background-color: white;        
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: 'default';
+  border-radius: 16px;
+  border: 1px solid #f6f7f8;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.02);
 }
 
-@media (max-width: 576px) {
+.pickup-card {
+  background-color: #f8f9fa;
+}
+
+@media (max-width: 500px) {
   .recent-pickups-section {
-    padding: 0 !important;
     background-color: transparent !important;
   }
 
