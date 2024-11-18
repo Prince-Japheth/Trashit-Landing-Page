@@ -14,7 +14,7 @@ function Hero() {
                             <p>Efficient, reliable, and sustainable waste collection tailored to your needs. Join us in
                                 making the planet cleaner, one pickup at a time.</p>
                             <div className="button">
-                                <Link to="/dashboard" className="btn">Get Started</Link>
+                                <Link to="/auth-component" className="btn">Get Started</Link>
                             </div>
                         </div>
                     </div>
