@@ -176,7 +176,7 @@ const RequestPickup = () => {
         </GoogleMap>
       </LoadScript>
 
-      <div className="position-absolute start-0 end-0" style={{ bottom: '120px' }}>
+      <div className="position-absolute start-0 end-0" style={{ bottom: '250px' }}>
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-6">
