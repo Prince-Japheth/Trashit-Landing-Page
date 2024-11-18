@@ -87,34 +87,35 @@ const RequestPickup = () => {
     if (searchInputRef.current && window.google) {
       const autocomplete = new window.google.maps.places.Autocomplete(searchInputRef.current, {
         fields: ['formatted_address', 'geometry', 'name'],
-        componentRestrictions: { country: 'us' }
+        componentRestrictions: { country: 'ng' } // Restrict to Nigeria
       });
-
+  
       autocomplete.addListener('place_changed', () => {
         const place = autocomplete.getPlace();
-
+  
         if (!place.geometry || !place.geometry.location) return;
-
+  
         map.panTo(place.geometry.location);
         map.setZoom(17);
-
+  
         setSelectedLocation({
           lat: place.geometry.location.lat(),
           lng: place.geometry.location.lng(),
           address: place.formatted_address
         });
-
-        setAddressDetails(prev => ({
+  
+        setAddressDetails((prev) => ({
           ...prev,
           streetAddress: place.formatted_address
         }));
       });
-
+  
       map.addListener('bounds_changed', () => {
         autocomplete.setBounds(map.getBounds());
       });
     }
   };
+  
 
   const handleAddressChange = (e) => {
     const { name, value } = e.target;
@@ -175,14 +176,14 @@ const RequestPickup = () => {
         </GoogleMap>
       </LoadScript>
 
-      <div className="position-absolute start-0 end-0" style={{ bottom: '50px' }}>
+      <div className="position-absolute start-0 end-0" style={{ bottom: '120px' }}>
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-6">
               <div className="card shadow rounded-4">
                 <div className="card-body p-3">
                   <form onSubmit={handleSubmit}>
-                    <div className="input-group mb-3" style={{ position: 'relative' }}>
+                    <div className="input-group" style={{ position: 'relative' }}>
                       <span className="input-group-text border-0 bg-white">
                         <SearchNormal1 size="20" color="#6c757d"/>
                       </span>

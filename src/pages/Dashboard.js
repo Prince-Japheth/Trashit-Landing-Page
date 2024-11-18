@@ -8,6 +8,7 @@ import DashboardHeader from '../components/dashboard/DashboardHeader';
 import Home from './Home';
 import FundWallet from './FundWallet';
 import RequestPickup from './RequestPickup';
+import SubscriptionPlan from './SubscriptionPlan';
 
 function Dashboard() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -48,6 +49,7 @@ function Dashboard() {
               <Route index element={<Home />} />
               <Route path="fund-wallet" element={<FundWallet />} />
               <Route path="request-pickup" element={<RequestPickup />} />
+              <Route path="subscription-plan" element={<SubscriptionPlan />} />
             </Routes>
           </div>
         </div>
