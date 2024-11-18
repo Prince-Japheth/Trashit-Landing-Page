@@ -1,3 +1,4 @@
+// C:\Users\USER\Desktop\trashit-web\src\pages\Dashboard.js
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,6 +11,7 @@ import FundWallet from './FundWallet';
 import RequestPickup from './RequestPickup';
 import SubscriptionPlan from './SubscriptionPlan';
 import ProfilePage from './ProfilePage';
+import CardPayment from './CardPayment';
 
 function Dashboard() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -49,6 +51,7 @@ function Dashboard() {
             <Routes>
               <Route index element={<Home />} />
               <Route path="fund-wallet" element={<FundWallet />} />
+              <Route path="card-payment" element={<CardPayment />} />
               <Route path="request-pickup" element={<RequestPickup />} />
               <Route path="subscription-plan" element={<SubscriptionPlan />} />
               <Route path="profile" element={<ProfilePage />} />

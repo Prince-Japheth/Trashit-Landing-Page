@@ -1,5 +1,6 @@
+// C:\Users\USER\Desktop\trashit-web\src\pages\FundWallet.js
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { ArrowLeft2, Bank, Card, Copy } from 'iconsax-react';
 
@@ -102,7 +103,7 @@ export default function FundWallet() {
             </div>
 
             {/* Card Payment Option */}
-            <div className="col-12">
+            <Link to="../card-payment" className="col-12">
               <div 
                 className="card border-0 shadow-sm hover-shadow" 
                 style={{ 
@@ -135,7 +136,7 @@ export default function FundWallet() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

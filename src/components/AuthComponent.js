@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const AuthComponent = () => {
   const [isSignUp, setIsSignUp] = useState(true); // Toggle between Sign Up and Sign In
@@ -19,23 +19,21 @@ const AuthComponent = () => {
 
   return (
     <section className="bg-white">
-<header className="header navbar-areaa sticky py-0">
+      <header className="header navbar-areaa sticky py-0">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-12">
               <div className="nav-inner">
-                {/* Start Navbar */}
                 <nav className="navbar navbar-expand-lg">
-                  <a className="navbar-brand" href="#!">
+                  <Link className="navbar-brand" to="/">
                     <img src="assets/images/logo/logo.svg" alt="#" />
-                  </a>
+                  </Link>
                   <div className="button home-btn ms-auto">
                     <a href="#!" className="btn" style={{ backgroundColor: '#28a745', color: '#fff' }}>
                       Download App
                     </a>
                   </div>
                 </nav>
-                {/* End Navbar */}
               </div>
             </div>
           </div>
@@ -120,7 +118,6 @@ const AuthComponent = () => {
                         </div>
                       )}
 
-                      {/* Conditionally render the estate select dropdown */}
                       {isEstateMember && (
                         <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-building fa-lg me-3 fa-fw" />
@@ -130,7 +127,6 @@ const AuthComponent = () => {
                               <option value="estate1">Estate 1</option>
                               <option value="estate2">Estate 2</option>
                               <option value="estate3">Estate 3</option>
-                              {/* Add more estates as needed */}
                             </select>
                             <label className="form-label" htmlFor="estateSelect">
                               Choose Estate
@@ -149,6 +145,14 @@ const AuthComponent = () => {
                         </button>
                       </div>
                     </form>
+
+                    {!isSignUp && (
+                      <div className="text-center mt-3">
+                        <Link to="/forgot-password" style={{ color: '#28a745' }}>
+                          Forgot Password?
+                        </Link>
+                      </div>
+                    )}
 
                     <div className="text-center mt-3">
                       <a
